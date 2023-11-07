@@ -2,9 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     formContext:{
-        width:"100%",
-        height:"100%",
-        bottom:0,
+        flex:1,
         backgroundColor:"#fff",
         alignItems:"center",
         marginTop:30,
@@ -14,7 +12,7 @@ export const styles = StyleSheet.create({
     form:{
         width:"100%",
         height:"auto",
-        marginTop:30,
+        marginTop:20,
         padding:10,
     },
     formLabel:{
@@ -40,7 +38,7 @@ export const styles = StyleSheet.create({
         paddingTop:14,
         paddingBottom:14,
         marginLeft:12,
-        marginTop:30
+        marginTop:5
     },
     textButtonCalculator:{
         fontSize:20,
@@ -51,5 +49,9 @@ export const styles = StyleSheet.create({
         color:"red",
         fontWeight:"bold",
         paddingLeft:20
+    },
+    exibitionResult:{
+        width:"100%",
+        height:"50%",
     }
 })
