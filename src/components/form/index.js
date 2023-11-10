@@ -7,6 +7,7 @@ import {
     Vibration,
     Pressable,
     Keyboard,
+    FlatList
  } from "react-native"
 import { ResultIMC } from "./resultIMC"
 import { styles } from "./style"
@@ -19,10 +20,13 @@ export const Form=()=>{
     const [textButton, setTextButton] = useState("Calcular");
     const [imc, setImc] = useState(null);
     const [messageError,setMessageError] = useState(null);
+    const [imcList,setImcList] = useState([]);
 
     const imcCalculator = () => {
         let heightFormat = height.replace(",",".");
-        return setImc((Weight/(heightFormat*heightFormat)).toFixed(2));
+        let totalImc = (Weight/(heightFormat*heightFormat)).toFixed(2);
+        setImcList((arr)=>[...arr,{id: new Date().getTime(), imc: totalImc}])
+        setImc(totalImc);
     }
 
     const validatorImc=()=>{
@@ -94,6 +98,22 @@ export const Form=()=>{
                 </TouchableOpacity>
             </View>
         }
+
+        <FlatList
+            style={styles.listImcs}
+            data={imcList.reverse()}
+            renderItem={({item})=>{
+                return(
+                    <Text style={styles.resultImcItem}>
+                        <Text style={styles.textResultItemList}>Resultado IMC =</Text>
+                        {item.imc}
+                    </Text>
+                )
+            }}
+            keyExtractor={(item)=>{
+                item.id
+            }}
+        />
         </View>
     )
 }

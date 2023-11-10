@@ -53,5 +53,8 @@ export const styles = StyleSheet.create({
     exibitionResult:{
         width:"100%",
         height:"50%",
+    },
+    listImcs:{
+        
     }
 })
