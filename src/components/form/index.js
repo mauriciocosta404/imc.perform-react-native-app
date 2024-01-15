@@ -99,21 +99,22 @@ export const Form=()=>{
             </View>
         }
 
-        <FlatList
-            style={styles.listImcs}
-            data={imcList.reverse()}
-            renderItem={({item})=>{
-                return(
-                    <Text style={styles.resultImcItem}>
-                        <Text style={styles.textResultItemList}>Resultado IMC =</Text>
-                        {item.imc}
-                    </Text>
-                )
-            }}
-            keyExtractor={(item)=>{
-                item.id
-            }}
-        />
+            <FlatList
+                style={styles.listImcs}
+                data={imcList.reverse()}
+                renderItem={({item}) => {
+                    return (
+                        <Text style={styles.resultImcItem}>
+                            <Text style={styles.textResultItemList}>Resultado IMC =</Text>
+                            {item.imc}
+                        </Text>
+                    )
+                }}
+                keyExtractor={(item) => {
+                    return item.id.toString();  // Convert id to a string to ensure it's unique
+                }}
+            />
+
         </View>
     )
 }
